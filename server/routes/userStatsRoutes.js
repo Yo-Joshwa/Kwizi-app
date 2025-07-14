@@ -4,7 +4,7 @@ import Category from "../models/Category.js";
 
 const router = express.Router();
 
-router.get("/user/:userId/stats", async (req, res) => {
+router.get("/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
 
