@@ -13,10 +13,16 @@ import protectedRoutes from "./routes/protected.js";
 import quizRoutes from "./routes/quiz.js";
 import userQuizRoutes from "./routes/userQuizRoutes.js";
 
+
+// MongoDB connection
+mongoose
+.connect(process.env.MONGODB_URL)
+.then(() => console.log("MongoDB connected"))
+.catch((error) => console.log(error));
+
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
@@ -35,11 +41,6 @@ app.use(
 );
 app.use(express.json());
 
-// MongoDB connection
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.log(error));
 
 
 app.use(
