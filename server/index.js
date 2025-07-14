@@ -41,17 +41,19 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
+
+app.use(
+  ClerkExpressWithAuth({
+    secretKey: process.env.CLERK_SECRET_KEY,
+  })
+);
 app.use("/api/user", userRoutes);
 app.use("/api/user", userQuizRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/categories", quizRoutes);
 app.use("/api", userStatsRoutes);
 app.use("/api", clerkWebhook);
-app.use(
-  ClerkExpressWithAuth({
-    secretKey: process.env.CLERK_SECRET_KEY,
-  })
-);
+
 app.use("/api", protectedRoutes);
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
