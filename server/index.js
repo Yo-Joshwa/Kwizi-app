@@ -22,6 +22,7 @@ app.use(
     origin: process.env.CLIENT_URL,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
+      "x-user-id",
       "Access-Control-Allow-Origin",
       "Content-Type",
       "Authorization",
