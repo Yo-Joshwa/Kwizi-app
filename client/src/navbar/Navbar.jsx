@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { UserButton, SignedIn, SignedOut} from "@clerk/clerk-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
@@ -42,8 +42,8 @@ function Navbar() {
             </span>
             <span>Home</span>
           </a>
-          <a
-            href="/mystats"
+          <Link
+            to="/mystats"
             className={`py-2 px-2 flex items-center gap-2 text-lg leading-none text-blue-400 rounded-lg ${
               pathName === "/mystats"
                 ? " text-blue-400 border-2 border-blue-400"
@@ -55,7 +55,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faChartSimple} />
             </span>
             <span>My Stats</span>
-          </a>
+          </Link>
         </div>
 
         <div>
