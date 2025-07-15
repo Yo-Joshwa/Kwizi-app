@@ -25,7 +25,7 @@ function UserStats() {
     const fetchStats = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/stats/${user.id}`
+          `${import.meta.env.VITE_API_URL}/api/user/${user.id}/stats`
         );
         setUserStats(res.data);
       } catch (err) {

@@ -52,7 +52,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/user", userQuizRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/categories", quizRoutes);
-app.use("/api/stats", userStatsRoutes);
+app.use("/api", userStatsRoutes);
 app.use("/api", clerkWebhook);
 
 app.use("/api", protectedRoutes);
